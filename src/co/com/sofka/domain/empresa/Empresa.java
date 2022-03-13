@@ -38,6 +38,10 @@ public class Empresa extends AggregateEvent<EmpresaId> {
     public void agregarRazonSocial(RazonSocial razonsocial){
         appendChange(new RazonSocialGenerada(razonsocial)).apply();
     }
+    public void cambiarEmpleadoSeccion(EmpleadoId empleadoId,SeccionId seccionId, EmpresaId empresaId){
+        appendChange(new SeccionCambiada(seccionId, empleadoId,empresaId)).apply();
+    }
+
     public void agregarRUT(RUT razonsocial){
         appendChange(new RUTGenerado(rut)).apply();
     }
